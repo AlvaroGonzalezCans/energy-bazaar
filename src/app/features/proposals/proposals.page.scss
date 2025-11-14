@@ -1,0 +1,78 @@
+.proposals-shell {
+	padding: 1.5rem;
+	max-width: 1120px;
+	margin: 0 auto;
+	color: #e5e7eb;
+}
+
+.proposals-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.25rem;
+}
+
+.page-title {
+	margin: 0;
+	font-size: 1.6rem;
+	font-weight: 600;
+	color: #66fcf1;
+}
+
+.page-subtitle {
+	margin: 0.25rem 0 0;
+	font-size: 0.9rem;
+	color: #9ca3af;
+}
+
+.proposals-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.list-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 0.5rem;
+}
+
+.section-title {
+	margin: 0;
+	font-size: 1rem;
+	color: #e5e7eb;
+}
+
+.count-pill {
+	padding: 0.2rem 0.6rem;
+	border-radius: 999px;
+	border: 1px solid #374151;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	color: #9ca3af;
+}
+
+.loading {
+	margin-top: 0.75rem;
+	font-size: 0.9rem;
+	color: #9ca3af;
+}
+
+.empty-state {
+	margin-top: 0.75rem;
+	font-size: 0.9rem;
+	color: #9ca3af;
+	font-style: italic;
+}
+
+.proposals-grid {
+	margin-top: 0.5rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.85rem;
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
+}

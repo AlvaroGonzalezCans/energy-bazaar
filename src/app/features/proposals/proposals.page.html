@@ -1,0 +1,44 @@
+<div class="proposals-shell">
+	<header class="proposals-header">
+		<div>
+			<h1 class="page-title">
+				{{ 'proposals.title' | translate }}
+			</h1>
+			<p class="page-subtitle">
+				{{ 'proposals.subtitle' | translate }}
+			</p>
+		</div>
+	</header>
+
+	<section class="proposals-content">
+		<app-proposal-form (submitForm)="store.create($event)"></app-proposal-form>
+
+		<div class="list-header">
+			<h2 class="section-title">
+				{{ 'proposals.list.title' | translate }}
+			</h2>
+			<span class="count-pill">
+				{{ store.proposals().length }} {{ 'proposals.list.count-label' | translate }}
+			</span>
+		</div>
+
+		@if (store.loading()) {
+			<div class="loading">
+				{{ 'proposals.list.loading' | translate }}
+			</div>
+		} @else {
+			@if (store.proposals().length === 0) {
+				<p class="empty-state">
+					{{ 'proposals.list.empty' | translate }}
+				</p>
+			} @else {
+				<div class="proposals-grid">
+					@for (p of store.proposals(); track p.id) {
+					<app-proposal-card [proposal]="p" (approve)="store.approve(p.id)" (reject)="store.reject(p.id)">
+					</app-proposal-card>
+					}
+				</div>
+			}
+		}
+	</section>
+</div>

@@ -28,5 +28,55 @@
 				}
 			}
 		}
+	},
+	"proposals": {
+		"title": "Trade Proposals",
+		"subtitle": "Submit proposals and monitor interplanetary approval flows",
+		"new": {
+			"title": "Create Proposal",
+			"planet": "Planet",
+			"type": "Trade Type",
+			"amount": "Amount (ZJ)",
+			"submit": "Submit Proposal",
+			"success": "Proposal created successfully"
+		},
+		"statuses": {
+			"pending": "Pending",
+			"approved": "Approved",
+			"rejected": "Rejected"
+		},
+		"list": {
+			"title": "Proposals Timeline",
+			"empty": "No proposals yet",
+			"loading": "Fetching proposals from the Galactic Core..."
+		},
+		"card": {
+			"id": "Proposal ID",
+			"planet": "Planet",
+			"type": "Type",
+			"amount": "Amount",
+			"created": "Created At",
+			"approvals": "Approvals",
+			"required": "Required Approvals",
+			"actions": {
+				"approve": "Approve",
+				"reject": "Reject"
+			}
+		},
+		"timeline": {
+			"title": "Approval Timeline",
+			"approvedBy": "Approved by {{user}} at {{date}}",
+			"noApprovals": "No approvals yet"
+		},
+		"form": {
+			"title": "Create new proposal",
+			"subtitle": "Draft a trade proposal and send it to the Galactic Council for approval.",
+			"planet": "Planet",
+			"type": "Trade type",
+			"buy": "Buy",
+			"sell": "Sell",
+			"amount": "Amount",
+			"submit": "Submit proposal"
+		}
 	}
 }

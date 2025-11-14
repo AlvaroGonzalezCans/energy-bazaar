@@ -1,0 +1,56 @@
+<div class="proposal-card" [class.approved]="proposal.status === 'APPROVED'"
+	[class.rejected]="proposal.status === 'REJECTED'">
+	<div class="card-header">
+		<div class="id-pill">
+			{{ proposal.id }}
+		</div>
+		<div class="status-pill" [class.pending]="proposal.status === 'PENDING'"
+			[class.approved]="proposal.status === 'APPROVED'" [class.rejected]="proposal.status === 'REJECTED'">
+			{{ proposal.status }}
+		</div>
+	</div>
+
+	<div class="card-main">
+		<div class="info-row">
+			<span class="label">{{ 'proposals.card.planet' | translate }}</span>
+			<span class="value">{{ proposal.planet }}</span>
+		</div>
+
+		<div class="info-row">
+			<span class="label">{{ 'proposals.card.type' | translate }}</span>
+			<span class="value type" [class.buy]="proposal.type === 'BUY'" [class.sell]="proposal.type === 'SELL'">
+				{{ proposal.type }}
+			</span>
+		</div>
+
+		<div class="info-row">
+			<span class="label">{{ 'proposals.card.amount' | translate }}</span>
+			<span class="value">{{ proposal.amount | number }} ZJ</span>
+		</div>
+
+		<div class="progress-row">
+			<span class="label">
+				{{ 'proposals.card.approvals' | translate:{ current: proposal.approvals.length, total:
+				proposal.requiredApprovals } }}
+			</span>
+			<div class="progress-bar">
+				<div class="progress-fill" [style.width.%]="progress"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card-actions">
+		<ng-container *hasPermission="'trade:approve'">
+			<button type="button" class="action-btn approve" (click)="approve.emit()"
+				[disabled]="proposal.status !== 'PENDING'">
+				{{ 'proposals.card.actions.approve' | translate }}
+			</button>
+			<button type="button" class="action-btn reject" (click)="reject.emit()"
+				[disabled]="proposal.status !== 'PENDING'">
+				{{ 'proposals.card.actions.reject' | translate }}
+			</button>
+		</ng-container>
+	</div>
+
+	<app-proposal-timeline [proposal]="proposal"></app-proposal-timeline>
+</div>

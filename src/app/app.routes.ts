@@ -15,7 +15,12 @@ export const routes: Routes = [
         path: 'admin',
         canActivate: [canActivate(['admin','council'])],
         loadComponent: () => import('./features/admin/admin.page').then(m => m.AdminPage)
-      }
+      },
+      { 
+        path: 'proposals',
+        canActivate: [authGuard, canActivate(['trader','admin','council'])],
+        loadComponent: () => import('./features/proposals/proposals.page').then(m => m.ProposalsPage)
+      },
     ]
   },
   { path: '**', redirectTo: '' }

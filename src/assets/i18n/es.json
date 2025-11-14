@@ -28,5 +28,55 @@
 				}
 			}
 		}
-	}
+	},
+  "proposals": {
+    "title": "Propuestas de Comercio",
+    "subtitle": "Envía propuestas y monitoriza los flujos de aprobación interplanetaria",
+    "new": {
+      "title": "Crear Propuesta",
+      "planet": "Planeta",
+      "type": "Tipo de operación",
+      "amount": "Cantidad (ZJ)",
+      "submit": "Enviar Propuesta",
+      "success": "Propuesta creada correctamente"
+    },
+    "statuses": {
+      "pending": "Pendiente",
+      "approved": "Aprobada",
+      "rejected": "Rechazada"
+    },
+    "list": {
+      "title": "Línea Temporal de Propuestas",
+      "empty": "Aún no hay propuestas",
+      "loading": "Recuperando propuestas desde el Núcleo Galáctico..."
+    },
+    "card": {
+      "id": "ID de Propuesta",
+      "planet": "Planeta",
+      "type": "Tipo",
+      "amount": "Cantidad",
+      "created": "Creada el",
+      "approvals": "Aprobaciones",
+      "required": "Aprobaciones Necesarias",
+      "actions": {
+        "approve": "Aprobar",
+        "reject": "Rechazar"
+      }
+    },
+    "timeline": {
+      "title": "Línea de Aprobaciones",
+      "approvedBy": "Aprobado por {{user}} el {{date}}",
+      "noApprovals": "Aún no hay aprobaciones"
+    },
+		"form": {
+			"title": "Crear nueva propuesta",
+			"subtitle": "Redacta una propuesta de operación y envíala al Consejo Galáctico para su aprobación.",
+			"planet": "Planeta",
+			"type": "Tipo de operación",
+			"buy": "Comprar",
+			"sell": "Vender",
+			"amount": "Cantidad",
+			"submit": "Enviar propuesta"
+		}
+  }
 }

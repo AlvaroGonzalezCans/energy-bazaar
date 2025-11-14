@@ -1,12 +1,13 @@
+export type TradeKind = 'BUY' | 'SELL';
+
 export interface Trade {
   id: string;
   planet: string;
-  type: 'BUY' | 'SELL';
+  type: TradeKind;
   amount: number;
   time: string;
 }
 
-export type TradeKind = 'BUY' | 'SELL';
 export interface TradeOrder {
   planet: string;
   kind: TradeKind;

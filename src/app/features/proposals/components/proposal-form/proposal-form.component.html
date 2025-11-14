@@ -1,0 +1,48 @@
+<form class="proposal-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+	<div class="form-header">
+		<h3 class="form-title">
+			✨ {{ 'proposals.form.title' | translate }}
+		</h3>
+		<p class="form-subtitle">
+			{{ 'proposals.form.subtitle' | translate }}
+		</p>
+	</div>
+
+	<div class="form-grid">
+		<div class="field">
+			<label>{{ 'proposals.form.planet' | translate }}</label>
+			<select formControlName="planet">
+				<option value="Earth">Earth</option>
+				<option value="Mars">Mars</option>
+				<option value="Ulthar">Ulthar</option>
+				<option value="Jovia">Jovia</option>
+			</select>
+		</div>
+
+		<div class="field">
+			<label>{{ 'proposals.form.type' | translate }}</label>
+			<div class="type-toggle">
+				<button type="button" [class.active]="form.value.type === 'BUY'" (click)="form.patchValue({ type: 'BUY' })">
+					{{ 'proposals.form.buy' | translate }}
+				</button>
+				<button type="button" [class.active]="form.value.type === 'SELL'" (click)="form.patchValue({ type: 'SELL' })">
+					{{ 'proposals.form.sell' | translate }}
+				</button>
+			</div>
+		</div>
+
+		<div class="field">
+			<label>{{ 'proposals.form.amount' | translate }}</label>
+			<div class="amount-wrapper">
+				<input type="number" formControlName="amount" min="1" />
+				<span class="unit">ZJ</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-footer">
+		<button type="submit" [disabled]="form.invalid" class="submit-btn">
+			{{ 'proposals.form.submit' | translate }}
+		</button>
+	</div>
+</form>

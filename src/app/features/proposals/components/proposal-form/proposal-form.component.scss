@@ -1,0 +1,144 @@
+.proposal-form {
+	padding: 1.25rem 1.5rem;
+	border-radius: 1rem;
+	background: radial-gradient(circle at top, #1f2933 0, #050816 55%);
+	border: 1px solid rgba(102, 252, 241, 0.18);
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+	color: #e5e7eb;
+}
+
+.form-header {
+	margin-bottom: 0.75rem;
+}
+
+.form-title {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #66fcf1;
+}
+
+.form-subtitle {
+	margin: 0.25rem 0 0;
+	font-size: 0.82rem;
+	color: #9ca3af;
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.9rem;
+	margin-top: 0.75rem;
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.field label {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #9ca3af;
+}
+
+select,
+input[type='number'] {
+	width: 100%;
+	padding: 0.45rem 0.7rem;
+	border-radius: 0.6rem;
+	border: 1px solid #374151;
+	background: #020617;
+	color: #e5e7eb;
+	font-size: 0.9rem;
+	outline: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+select:hover,
+input[type='number']:hover {
+	border-color: #4b5563;
+	background: #050b1b;
+}
+
+select:focus,
+input[type='number']:focus {
+	border-color: #66fcf1;
+	box-shadow: 0 0 8px rgba(102, 252, 241, 0.45);
+}
+
+.type-toggle {
+	display: inline-flex;
+	background: #020617;
+	border-radius: 999px;
+	padding: 0.15rem;
+	border: 1px solid #374151;
+}
+
+.type-toggle button {
+	border: none;
+	background: transparent;
+	color: #9ca3af;
+	padding: 0.25rem 0.7rem;
+	font-size: 0.8rem;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.type-toggle button.active {
+	background: linear-gradient(135deg, #22c55e, #16a34a);
+	color: #f9fafb;
+}
+
+.amount-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+}
+
+.amount-wrapper .unit {
+	font-size: 0.8rem;
+	color: #9ca3af;
+}
+
+.form-footer {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 1rem;
+}
+
+.submit-btn {
+	padding: 0.45rem 1.1rem;
+	border-radius: 999px;
+	border: 1px solid rgba(102, 252, 241, 0.7);
+	background: radial-gradient(circle at top, #1d2935 0, #020617 55%);
+	color: #e5e7eb;
+	font-size: 0.85rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.submit-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.submit-btn:not(:disabled):hover {
+	border-color: #66fcf1;
+	box-shadow: 0 0 12px rgba(102, 252, 241, 0.45);
+	transform: translateY(-1px);
+}
+
+.submit-btn:not(:disabled):active {
+	transform: translateY(0);
+	box-shadow: 0 0 6px rgba(102, 252, 241, 0.3);
+}
