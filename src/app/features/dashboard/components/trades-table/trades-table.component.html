@@ -1,0 +1,53 @@
+<div class="table-container">
+  <div class="table-header">
+    <h2 class="table-title">
+      🪐 {{ 'dashboard.trades-table.title' | translate }}
+    </h2>
+
+    <div class="filters">
+      <app-filters-bar (filterChange)="store.updateFilters($event)" />
+      <input
+        type="text"
+        class="search-input"
+        [formControl]="searchControl"
+        placeholder="Search trades..."
+      />
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    @if (loading) {
+      <div class="loading">
+        {{ 'dashboard.trades-table.loading-data' | translate }}
+      </div>
+    } @else {
+      <table class="futuristic-table">
+        <thead>
+          <tr>
+            @for (col of cols; track col.key) {
+              <th scope="col">
+                {{ col.label | translate: col.params }}
+              </th>
+            }
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (t of filtered(); track t.id) {
+            <tr [class.buy]="t.type === 'BUY'" [class.sell]="t.type === 'SELL'">
+              <td>{{ t.id }}</td>
+              <td>{{ t.planet }}</td>
+              <td>{{ t.type }}</td>
+              <td>{{ t.amount | number }}</td>
+              <td>{{ t.time | date: 'shortTime' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+      @if (filtered().length === 0) {
+        <p class="no-results">No results found</p>
+      }
+    }
+  </div>
+</div>

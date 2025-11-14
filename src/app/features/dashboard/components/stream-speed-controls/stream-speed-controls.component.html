@@ -1,0 +1,8 @@
+<div class="controls">
+	<button class="btn" [class.active]="store.profile()==='slow'" (click)="set('slow')">Slow</button>
+	<button class="btn" [class.active]="store.profile()==='normal'" (click)="set('normal')">Normal</button>
+	<button class="btn" [class.active]="store.profile()==='fast'" (click)="set('fast')">Fast</button>
+
+	<span class="status" [class.on]="store.streaming()">● {{ store.profile() | uppercase }} / {{ store.streaming() ? 'ON'
+		: 'OFF' }}</span>
+</div>

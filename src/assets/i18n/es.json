@@ -1,0 +1,32 @@
+{
+	"login": {
+		"username": "Usuario",
+		"password": "Contraseña",
+		"login": "Login"
+	},
+	"admin": {
+		"title": "Panel de control de administrador",
+		"description": "Solamente miembros autorizados de Galactic Council pueden acceder a este área.",
+		"list": {
+			"manage-users": "Administrar usuarios & roles",
+			"freeze-trades": "Congelar transacciones sospechosas",
+			"adjust-market": "Adjustar parámetros del mercado"
+		}
+	},
+	"dashboard": {
+		"title": "Panel de Energía Galáctica",
+		"trades-table": {
+			"title": "Negociaciones de energía",
+			"loading-data": "Cargando datos interplanetarios...",
+			"table": {
+				"titles": {
+					"tradeId": "ID de Operación",
+					"planet": "Planeta",
+					"type": "Tipo",
+					"amount": "Cantidad ({{unit}})",
+					"time": "Hora"
+				}
+			}
+		}
+	}
+}

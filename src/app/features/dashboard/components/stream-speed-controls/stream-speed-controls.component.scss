@@ -1,0 +1,28 @@
+.controls {
+	display: flex;
+	align-items: center;
+	gap: .5rem
+}
+
+.btn {
+	padding: .45rem .8rem;
+	border-radius: .6rem;
+	border: 1px solid #374151;
+	background: #0b0c10;
+	color: #e5e7eb;
+	cursor: pointer
+}
+
+.btn.active {
+	border-color: #66fcf1;
+	box-shadow: 0 0 8px rgba(102, 252, 241, .25)
+}
+
+.status {
+	margin-left: .5rem;
+	color: #9ca3af
+}
+
+.status.on {
+	color: #66fcf1
+}

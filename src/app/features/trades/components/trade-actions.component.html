@@ -1,0 +1,25 @@
+<div *hasPermission="'trade:propose'" class="container-buttons">
+	<button class="btn buy" (click)="open('BUY')">Buy</button>
+	<button class="btn sell" (click)="open('SELL')">Sell</button>
+</div>
+
+<div *ngIf="openModal()" class="modal">
+	<form [formGroup]="form" (ngSubmit)="submit()">
+		<h3>{{ kind() }} Order</h3>
+		<label>Planet</label>
+		<select formControlName="planet">
+			<option>Earth</option>
+			<option>Mars</option>
+			<option>Ulthar</option>
+		</select>
+		<label>Amount (ZJ)</label>
+		<input type="number" formControlName="amount" />
+		<label>Price (optional)</label>
+		<input type="number" formControlName="price" />
+		<div class="actions">
+			<button type="button" (click)="close()">Cancel</button>
+			<button type="submit" [disabled]="form.invalid || loading()">Confirm</button>
+		</div>
+		<p *ngIf="errorMsg()" class="error-msg">{{ errorMsg() }}</p>
+	</form>
+</div>

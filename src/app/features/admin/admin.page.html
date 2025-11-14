@@ -1,0 +1,16 @@
+<div class="p-6">
+	<header class="header-container">
+		<button class="back-btn" type="button" (click)="handleBack()">
+			<span class="back-btn__icon">←</span>
+			<span class="back-btn__label">Back to Dashboard</span>
+		</button>
+		<h1 class="text-2xl font-bold text-rose-500 mb-4">🛡️ {{ 'admin.title' | translate }}</h1>
+	</header>
+	<p>{{ 'admin.description' | translate }}</p>
+
+	<ul>
+		@for (key of listKeys; track key) {
+			<li>{{ ('admin.list.' + key) | translate }}</li>
+		}
+	</ul>
+</div>

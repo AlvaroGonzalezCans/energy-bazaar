@@ -1,0 +1,53 @@
+.filters-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	border-radius: 0.75rem;
+	background: rgba(27, 30, 35, 0.95);
+	border: 1px solid rgba(55, 65, 81, 0.6); // gris
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.filters-select {
+	min-width: 160px;
+	padding: 0.45rem 0.9rem;
+	border-radius: 0.6rem;
+	border: 1px solid #374151; // gris oscuro
+	background: #0b0c10; // fondo casi negro
+	color: #e5e7eb; // texto gris claro
+	font-size: 0.9rem;
+	outline: none;
+	cursor: pointer;
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease,
+		background-color 0.2s ease;
+
+	// placeholder/option color
+	option {
+		background: #0b0c10;
+		color: #e5e7eb;
+	}
+
+	&:hover {
+		border-color: #4b5563;
+		background: #111827;
+	}
+
+	&:focus {
+		border-color: #66fcf1; // turquesa del dashboard
+		box-shadow: 0 0 8px rgba(102, 252, 241, 0.35);
+	}
+}
+
+@media (max-width: 640px) {
+	.filters-bar {
+		padding: 0.6rem;
+	}
+
+	.filters-select {
+		width: 100%;
+	}
+}

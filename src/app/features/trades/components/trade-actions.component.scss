@@ -1,0 +1,62 @@
+.btn {
+	padding: .5rem .9rem;
+	border-radius: .6rem;
+	border: 1px solid #374151;
+	background: #0b0c10;
+	color: #e5e7eb;
+}
+
+.buy {
+	border-color: #45a29e;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.sell {
+	border-color: #ef4444;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.modal {
+	margin-top: 1rem;
+	padding: 1rem;
+	border: 1px solid rgba(102, 252, 241, .2);
+	border-radius: 1rem;
+	background: #1b1e23
+}
+
+label {
+	display: block;
+	margin-top: .5rem;
+	color: #9ca3af
+}
+
+input,
+select {
+	width: 100%;
+	padding: .5rem;
+	border-radius: .5rem;
+	border: 1px solid #374151;
+	background: #0b0c10;
+	color: #e5e7eb
+}
+
+.actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: .5rem;
+	margin-top: 1rem
+}
+
+.container-buttons {
+	display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}

@@ -1,0 +1,9 @@
+<div class="p-4 bg-[#1b1e23] rounded-xl border border-gray-700/50 shadow-lg">
+    <h2 class="text-lg font-semibold mb-4 text-[#66FCF1]">Planet Leaderboard</h2>
+    <ul class="space-y-2">
+    <li *ngFor="let entry of leaderboard; let i = index" class="flex justify-between text-gray-300">
+        <span>{{ i + 1 }}. {{ entry.planet }} </span>
+        <span>{{ entry.amount | number }} ZJ</span>
+    </li>
+    </ul>
+</div>

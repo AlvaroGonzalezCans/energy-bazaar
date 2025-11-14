@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.scss */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #f3f4f6;
+  background-color: #0b0c10;
+}
+
+h1, h2, .title {
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.03em;
+}

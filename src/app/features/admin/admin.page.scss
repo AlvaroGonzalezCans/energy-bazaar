@@ -1,0 +1,63 @@
+.header-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+
+  border: 1px solid rgba(102, 252, 241, 0.5);
+  background: radial-gradient(circle at top, #1f2933 0, #0b0c10 55%);
+  color: #e5e7eb;
+
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    color 0.2s ease;
+}
+
+.back-btn__icon {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.back-btn__label {
+  white-space: nowrap;
+}
+
+.back-btn:hover {
+  border-color: #66fcf1;
+  box-shadow: 0 0 12px rgba(102, 252, 241, 0.45);
+  transform: translateY(-1px);
+  color: #f9fafb;
+}
+
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 6px rgba(102, 252, 241, 0.3);
+}
+
+.back-btn:focus-visible {
+  outline: 2px solid #66fcf1;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .back-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
