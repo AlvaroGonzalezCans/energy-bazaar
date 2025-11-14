@@ -8,9 +8,9 @@ import { TradeService } from '../trades/trade.service';
 type SpeedProfile = 'slow'|'normal'|'fast';
 
 const SPEED_PROFILES: Record<SpeedProfile, { burstsPerSecond: number; burstSize: number; bufferMs: number }> = {
-  slow:   { burstsPerSecond: 1,  burstSize: 2,  bufferMs: 300 },  // ~50 trades/s
-  normal: { burstsPerSecond: 12, burstSize: 25,  bufferMs: 200 },  // ~300 trades/s
-  fast:   { burstsPerSecond: 25, burstSize: 40,  bufferMs: 150 },  // ~1000 trades/s
+  slow:   { burstsPerSecond: 1,  burstSize: 2,  bufferMs: 300 },
+  normal: { burstsPerSecond: 12, burstSize: 25,  bufferMs: 200 },
+  fast:   { burstsPerSecond: 25, burstSize: 40,  bufferMs: 150 },
 };
 
 @Injectable()
@@ -50,19 +50,16 @@ export class DashboardStore implements OnDestroy {
     this.service.getTrades().subscribe(trades => {
       this._trades.set(trades);
       this._loading.set(false);
-      // No arrancamos stream aquí; lo hará el usuario con los botones.
     });
   }
 
-  /** Cambia el perfil y (re)inicia el stream con la nueva velocidad */
   setSpeedProfile(profile: SpeedProfile) {
-    if (this._profile() === profile && this._streaming()) return; // ya está igual
+    if (this._profile() === profile && this._streaming()) return;
     this._profile.set(profile);
     this.restartStreamWithProfile(profile);
   }
 
   private restartStreamWithProfile(profile: SpeedProfile) {
-    // Detiene stream actual (si lo hay)
     if (this._streaming()) this.streamStop$.next();
 
     const cfg = SPEED_PROFILES[profile];
@@ -83,7 +80,7 @@ export class DashboardStore implements OnDestroy {
       if (!batch.length) return;
       this._trades.update(prev => {
         const next = [...batch.reverse(), ...prev];
-        return next.slice(0, 5000); // límite para rendimiento
+        return next.slice(0, 5000);
       });
     });
   }

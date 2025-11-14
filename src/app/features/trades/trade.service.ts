@@ -9,13 +9,11 @@ type TradeKind = 'BUY'|'SELL';
 
 @Injectable({ providedIn: 'root' })
 export class TradeService {
-  /** Mock: crear 1 orden */
   create(order: TradeOrder): Observable<Trade> {
     const t = this.buildTrade(order.kind as TradeKind, order.planet, order.amount);
     return of(t);
   }
 
-  /** NUEVO: stream de órdenes en ráfagas súper rápido */
   streamOrders(options?: {
     burstsPerSecond?: number;    // cuántas ráfagas por segundo
     burstSize?: number;          // nº de órdenes por ráfaga
@@ -34,7 +32,6 @@ export class TradeService {
     const periodMs = Math.max(1, Math.floor(1000 / burstsPerSecond));
 
     return interval(periodMs).pipe(
-      // cada tick genera 'burstSize' órdenes
       mergeMap(() =>
         range(0, burstSize).pipe(
           map(() => this.randomTrade(planets, kindWeights))
@@ -44,7 +41,6 @@ export class TradeService {
     );
   }
 
-  // Helpers
   private randomTrade(planets: string[], weights: { BUY: number; SELL: number }): Trade {
     const total = weights.BUY + weights.SELL;
     const r = Math.random() * total;

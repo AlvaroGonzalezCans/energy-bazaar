@@ -1,16 +1,14 @@
-<div class="p-6 space-y-6">
-	<header class="header-container">
-		<h1 class="text-2xl font-semibold text-[#66FCF1]">⚡ {{ 'dashboard.title' | translate }}</h1>
-		<app-logout-button></app-logout-button>
-	</header>
-	<main class="grid grid-cols-1 md:grid-cols-3 gap-6">
-		<app-stream-speed-controls></app-stream-speed-controls>
-		<app-leader-board [leaderboard]="store.leaderboard()" />
-		<section class="md:col-span-2">
-			<div class="actions-buttons">
-				<app-trade-actions />
-			</div>
-			<app-trades-table [trades]="store.filteredTrades()" [loading]="store.loading()" />
-		</section>
-	</main>
-</div>
+<header class="header-container">
+	<h1>⚡ {{ 'dashboard.title' | translate }}</h1>
+	<app-logout-button></app-logout-button>
+</header>
+<main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+	<app-stream-speed-controls></app-stream-speed-controls>
+	<app-leader-board [leaderboard]="store.leaderboard()" />
+	<section>
+		<div class="actions-buttons">
+			<app-trade-actions />
+		</div>
+		<app-trades-table [trades]="store.filteredTrades()" [loading]="store.loading()" />
+	</section>
+</main>

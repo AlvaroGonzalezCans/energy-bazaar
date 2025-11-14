@@ -47,7 +47,7 @@ export class TradeActionsComponent {
 
 		if (!this.auth.isTokenValid()) {
       this.errorMsg.set('Tu sesión ha expirado. Vuelve a iniciar sesión.');
-      this.auth.logout();                 // limpia estado
+      this.auth.logout();
       this.router.navigateByUrl('/login');
       return;
     }
