@@ -19,7 +19,7 @@
 			<span>Dashboard</span>
 		</a>
 
-		<a class="nav-link nav-link--proposals" routerLink="/proposals" routerLinkActive="is-active">
+		<a *hasPermission="['trade:propose', 'trade:approve']" class="nav-link nav-link--proposals" routerLink="/proposals" routerLinkActive="is-active">
 			<span class="icon">✨</span>
 			<span>Proposals</span>
 		</a>

@@ -1,8 +1,4 @@
-<header class="header-container">
-	<h1>⚡ {{ 'dashboard.title' | translate }}</h1>
-	<app-logout-button></app-logout-button>
-</header>
-<main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<main>
 	<app-stream-speed-controls></app-stream-speed-controls>
 	<app-leader-board [leaderboard]="store.leaderboard()" />
 	<section>

@@ -9,3 +9,109 @@
 	justify-content: space-between;
 	align-items: center;
 }
+
+.dash-nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+
+	border-radius: 1rem;
+	background: radial-gradient(circle at top, #111827 0, #020617 55%);
+	border: 1px solid rgba(31, 41, 55, 0.9);
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
+	color: #e5e7eb;
+	gap: 1rem;
+}
+
+.dash-nav__title {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #66fcf1;
+}
+
+.dash-nav__right {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+/* Enlaces del nav */
+.dash-nav__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+
+	padding: 0.35rem 0.9rem;
+	border-radius: 999px;
+
+	font-size: 0.8rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+
+	border: 1px solid rgba(55, 65, 81, 0.9);
+	background: #020617;
+	color: #9ca3af;
+	text-decoration: none;
+	cursor: pointer;
+
+	transition:
+		border-color 0.18s ease,
+		box-shadow 0.18s ease,
+		background-color 0.18s ease,
+		color 0.18s ease,
+		transform 0.08s ease;
+}
+
+.dash-nav__link .icon {
+	font-size: 0.9rem;
+}
+
+/* Hover genérico */
+.dash-nav__link:hover {
+	border-color: #4b5563;
+	background: #050b1b;
+	color: #e5e7eb;
+	transform: translateY(-1px);
+}
+
+/* Variante especial para Proposals */
+.dash-nav__link--proposals {
+	border-color: rgba(102, 252, 241, 0.45);
+	color: #e0f2fe;
+}
+
+/* Estado activo, usando la clase que añade routerLinkActive */
+.dash-nav__link.is-active,
+.dash-nav__link--proposals.is-active {
+	border-color: #66fcf1;
+	background: radial-gradient(circle at top, #052e3f 0, #020617 55%);
+	color: #f9fafb;
+	box-shadow: 0 0 14px rgba(102, 252, 241, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.dash-nav {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.6rem;
+	}
+
+	.dash-nav__right {
+		width: 100%;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.dash-nav__link {
+		font-size: 0.75rem;
+		padding: 0.3rem 0.75rem;
+	}
+}
