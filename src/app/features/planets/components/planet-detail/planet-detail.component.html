@@ -1,0 +1,63 @@
+<div *ngIf="planet() as p" class="planet-detail">
+  <header class="planet-detail__header">
+    <h1>{{ p.name }}</h1>
+    <p class="text-muted">{{ p.shortDescription }}</p>
+  </header>
+
+  <nav class="tabs">
+    <button
+      [class.is-active]="activeTab() === 'overview'"
+      (click)="selectTab('overview')"
+    >
+      Overview
+    </button>
+    <button
+      [class.is-active]="activeTab() === 'risk'"
+      (click)="selectTab('risk')"
+    >
+      Risk & Consumption
+    </button>
+    <button
+      [class.is-active]="activeTab() === 'financials'"
+      (click)="selectTab('financials')"
+      *hasPermission="['planet:financial:read']"
+    >
+      Financials
+    </button>
+  </nav>
+
+  <section *ngIf="activeTab() === 'overview'">
+    <h2>Overview</h2>
+    <p>
+      Planet: <strong>{{ p.name }}</strong>
+    </p>
+    <p>
+      Climate risk index:
+      <strong>{{ p.climateRiskIndex }}</strong>
+    </p>
+  </section>
+
+  <section *ngIf="activeTab() === 'risk'">
+    <h2>Climate & Consumption</h2>
+    <ul>
+      <li>Climate risk index: {{ p.climateRiskIndex }}</li>
+      <li>Avg daily energy consumption: {{ p.avgDailyEnergyConsumption }} MWh</li>
+    </ul>
+  </section>
+
+  <section *ngIf="activeTab() === 'financials'">
+    <h2>Financial Profile</h2>
+
+    <div *hasPermission="['planet:financial:read']">
+      <ul>
+        <li>Credit rating: <strong>{{ p.creditRating }}</strong></li>
+        <li>Credit line: <strong>{{ p.creditLine }} M Galactic Credits</strong></li>
+        <li>Trade exposure index: <strong>{{ p.tradeExposureIndex }}</strong></li>
+      </ul>
+    </div>
+
+    <p *hasPermission="['planet:financial:read']; negate">
+      Financial data is restricted to authorized council members.
+    </p>
+  </section>
+</div>

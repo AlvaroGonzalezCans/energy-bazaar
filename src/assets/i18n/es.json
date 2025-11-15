@@ -2,7 +2,8 @@
 	"login": {
 		"username": "Usuario",
 		"password": "Contraseña",
-		"login": "Login"
+		"login": "Login",
+    "logout": "Salir"
 	},
 	"admin": {
 		"title": "Panel de control de administrador",

@@ -1,0 +1,81 @@
+<section class="page planets-page">
+
+  <header class="page-header">
+    <div class="page-header__titles">
+      <h1>Planets</h1>
+      <p class="page-header__subtitle">
+        Explore the key worlds of the Galactic Energy Bazaar and their risk & energy profiles.
+      </p>
+    </div>
+  </header>
+
+  <ng-container *ngIf="planets$ | async as list; else loading">
+    <div *ngIf="list.length > 0; else noPlanets">
+      <div class="planets-grid">
+        <article
+          class="planet-card"
+          *ngFor="let planet of list"
+        >
+          <header class="planet-card__header">
+            <div class="planet-card__icon">
+              🪐
+            </div>
+            <div>
+              <h2 class="planet-card__title">
+                {{ planet.name }}
+              </h2>
+              <p class="planet-card__subtitle">
+                {{ planet.shortDescription }}
+              </p>
+            </div>
+          </header>
+
+          <div class="planet-card__body">
+            <div class="planet-card__metrics">
+              <div class="metric">
+                <span class="metric__label">Climate risk index</span>
+                <span class="metric__value">
+                  {{ planet.climateRiskIndex }}
+                </span>
+              </div>
+
+              <div class="metric">
+                <span class="metric__label">Avg daily consumption</span>
+                <span class="metric__value">
+                  {{ planet.avgDailyEnergyConsumption | number }} MWh
+                </span>
+              </div>
+            </div>
+
+            <p class="planet-card__hint">
+              Financial & trade data available in planet details
+              for authorized roles.
+            </p>
+          </div>
+
+          <footer class="planet-card__footer">
+            <a
+              class="btn btn-sm btn-primary"
+              [routerLink]="['/planets', planet.id]"
+            >
+              View details
+            </a>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="page-loading">
+      Loading planetary profiles...
+    </div>
+  </ng-template>
+
+  <ng-template #noPlanets>
+    <p class="empty-state">
+      No planetary profiles available.
+    </p>
+  </ng-template>
+
+</section>

@@ -1,0 +1,93 @@
+.page-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1.5rem;
+
+	&__subtitle {
+		color: #7a7a7a;
+		font-size: 0.9rem;
+	}
+}
+
+.planets-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+}
+
+.planet-card {
+	background: #0b0b18;
+	border-radius: 0.75rem;
+	padding: 1rem 1.25rem;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	display: flex;
+	flex-direction: column;
+	min-height: 180px;
+
+	&__header {
+		display: flex;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+
+	&__icon {
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 999px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: radial-gradient(circle at 30% 20%, #ffdd99, #7f5af0);
+		font-size: 1.3rem;
+		flex-shrink: 0;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	&__subtitle {
+		margin: 0.15rem 0 0;
+		font-size: 0.85rem;
+		color: #a0a0b5;
+	}
+
+	&__body {
+		flex: 1;
+		margin-top: 0.5rem;
+	}
+
+	&__metrics {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	&__hint {
+		font-size: 0.78rem;
+		color: #8888aa;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 0.75rem;
+	}
+}
+
+.metric {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.85rem;
+
+	&__label {
+		color: #a0a0b5;
+	}
+
+	&__value {
+		font-weight: 600;
+	}
+}

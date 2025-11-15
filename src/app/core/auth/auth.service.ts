@@ -54,7 +54,7 @@ export class AuthService {
                   : ['viewer'],
             permissions:
               username === 'admin'
-                ? ['trade:view', 'trade:approve', 'trade:freeze']
+                ? ['trade:view', 'trade:approve', 'trade:freeze', 'planet:read']
                 : username === 'trader'
                   ? ['trade:view', 'trade:propose']
                   : ['trade:view'],
