@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="app-root">
+  @if (auth.isAuthenticated()) {
+    <app-header />
+  }
+
+  <main class="app-main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

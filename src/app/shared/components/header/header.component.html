@@ -1,0 +1,40 @@
+<header class="main-header">
+	<div class="main-header__left">
+		<div class="logo-mark">
+			⚡
+		</div>
+		<div>
+			<h1 class="app-title">
+				Galactic Energy Bazaar
+			</h1>
+			<p class="app-subtitle">
+				Interplanetary Trade Console · 3057
+			</p>
+		</div>
+	</div>
+
+	<nav class="main-header__nav">
+		<a class="nav-link" routerLink="/dashboard" routerLinkActive="is-active"
+			[routerLinkActiveOptions]="{ exact: true }">
+			<span>Dashboard</span>
+		</a>
+
+		<a class="nav-link nav-link--proposals" routerLink="/proposals" routerLinkActive="is-active">
+			<span class="icon">✨</span>
+			<span>Proposals</span>
+		</a>
+
+		<a class="nav-link nav-link--admin" routerLink="/admin" routerLinkActive="is-active">
+			<span class="icon">🛡</span>
+			<span>Admin</span>
+		</a>
+	</nav>
+
+	<div class="main-header__right">
+		<div class="user-pill" *ngIf="user() as u">
+			<span class="user-name">{{ u.name || u.id }}</span>
+		</div>
+
+		<app-logout-button></app-logout-button>
+	</div>
+</header>
