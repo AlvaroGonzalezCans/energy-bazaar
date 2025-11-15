@@ -7,11 +7,12 @@ import { TradeActionsComponent } from '../trades/components/trade-actions.compon
 import { StreamSpeedControlsComponent } from './components/stream-speed-controls/stream-speed-controls.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { LogoutButtonComponent } from '../../shared/components/logout-button/logout-button.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page',
   standalone: true,
-  imports: [CommonModule, LeaderboardComponent, TradesTableComponent, TradeActionsComponent, StreamSpeedControlsComponent, TranslateModule, LogoutButtonComponent],
+  imports: [CommonModule, LeaderboardComponent, TradesTableComponent, TradeActionsComponent, StreamSpeedControlsComponent, TranslateModule, LogoutButtonComponent, RouterLink, RouterLinkActive],
   templateUrl: 'dashboard.page.html',
   styleUrls: ['dashboard.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

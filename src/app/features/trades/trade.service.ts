@@ -9,6 +9,11 @@ type TradeKind = 'BUY'|'SELL';
 
 @Injectable({ providedIn: 'root' })
 export class TradeService {
+  private executedSubject = new Subject<Trade>();
+  private _executed: Trade[] = [];
+
+  readonly executed$: Observable<Trade> = this.executedSubject.asObservable();
+
   create(order: TradeOrder): Observable<Trade> {
     const t = this.buildTrade(order.kind as TradeKind, order.planet, order.amount);
     return of(t);
@@ -39,6 +44,15 @@ export class TradeService {
       ),
       takeUntil(stop$)
     );
+  }
+
+  emitExecuted(trade: Trade) {
+    this._executed.unshift(trade);
+    this.executedSubject.next(trade);
+  }
+
+  getExecutedSnapshot(): Trade[] {
+    return [...this._executed];
   }
 
   private randomTrade(planets: string[], weights: { BUY: number; SELL: number }): Trade {

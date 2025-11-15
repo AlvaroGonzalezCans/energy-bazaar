@@ -1,8 +1,7 @@
-// features/dashboard/dashboard.store.ts
 import { Injectable, signal, computed, inject, OnDestroy } from '@angular/core';
-import { Subject, bufferTime, takeUntil } from 'rxjs';
 import { Trade } from '../../shared/models/trade.model';
 import { DashboardService } from './dashboard.service';
+import { bufferTime, Subject, takeUntil } from 'rxjs';
 import { TradeService } from '../trades/trade.service';
 
 type SpeedProfile = 'slow'|'normal'|'fast';
@@ -21,39 +20,56 @@ export class DashboardStore implements OnDestroy {
   private destroy$ = new Subject<void>();
   private streamStop$ = new Subject<void>();
 
-  private _trades  = signal<Trade[]>([]);
+  private _trades = signal<Trade[]>([]);
   private _filters = signal<{ planet?: string; type?: string }>({});
   private _loading = signal(true);
-  private _streaming = signal(false);
+   private _streaming = signal(false);
   private _profile  = signal<SpeedProfile>('normal');
 
-  readonly loading   = computed(() => this._loading());
+  readonly loading = computed(() => this._loading());
   readonly streaming = computed(() => this._streaming());
-  readonly profile   = computed(() => this._profile());
-  readonly trades    = computed(() => this._trades());
+  readonly profile = computed(() => this._profile());
+  readonly trades = computed(() => this._trades());
   readonly filteredTrades = computed(() => {
     const f = this._filters();
     return this._trades().filter(t =>
-      (!f.planet || t.planet === f.planet) && (!f.type || t.type === f.type)
+      (!f.planet || t.planet === f.planet) &&
+      (!f.type   || t.type   === f.type)
     );
   });
   readonly leaderboard = computed(() => {
     const byPlanet = new Map<string, number>();
-    this._trades().forEach(t => byPlanet.set(t.planet, (byPlanet.get(t.planet) || 0) + t.amount));
+    this._trades().forEach(t => {
+      byPlanet.set(t.planet, (byPlanet.get(t.planet) || 0) + t.amount);
+    });
     return Array.from(byPlanet.entries())
       .map(([planet, amount]) => ({ planet, amount }))
       .sort((a, b) => b.amount - a.amount);
   });
 
+  constructor() {
+    this.tradeService.executed$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(trade => this.appendTrade(trade));
+  }
+
   loadInitialData() {
     this._loading.set(true);
+    const initial = this.tradeService.getExecutedSnapshot();
+    this._trades.set(initial);
+    this._loading.set(false);
+
     this.service.getTrades().subscribe(trades => {
-      this._trades.set(trades);
+      this._trades.update(prev => {
+        const ids = new Set(prev.map(trades => trades.id));
+        const merged = [...prev, ...trades.filter(t => !ids.has(t.id))];
+        return merged;
+      })
       this._loading.set(false);
     });
   }
 
-  setSpeedProfile(profile: SpeedProfile) {
+    setSpeedProfile(profile: SpeedProfile) {
     if (this._profile() === profile && this._streaming()) return;
     this._profile.set(profile);
     this.restartStreamWithProfile(profile);
