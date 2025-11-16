@@ -16,35 +16,16 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: '20'
+          version: 10
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
           cache: 'pnpm'
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build Angular app
-        run: |
-          pnpm build
-
-      - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/energy-bazaar
-          # si al hacer `pnpm build` localmente solo ves `dist/energy-bazaar`,
-          # cámbialo a:
-          # path: dist/energy-bazaar
+      - run: pnpm install
+      - run: pnpm test
 
   deploy:
     needs: build
