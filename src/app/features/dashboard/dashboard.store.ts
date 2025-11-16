@@ -14,7 +14,7 @@ const SPEED_PROFILES: Record<SpeedProfile, { burstsPerSecond: number; burstSize:
 
 @Injectable()
 export class DashboardStore implements OnDestroy {
-  private service = inject(DashboardService);
+  private dashboardService = inject(DashboardService);
   private tradeService = inject(TradeService);
 
   private destroy$ = new Subject<void>();
@@ -59,7 +59,7 @@ export class DashboardStore implements OnDestroy {
     this._trades.set(initial);
     this._loading.set(false);
 
-    this.service.getTrades().subscribe(trades => {
+    this.dashboardService.getTrades().subscribe(trades => {
       this._trades.update(prev => {
         const ids = new Set(prev.map(trades => trades.id));
         const merged = [...prev, ...trades.filter(t => !ids.has(t.id))];
