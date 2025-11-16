@@ -28,6 +28,11 @@ jobs:
           # si al hacer `pnpm build` localmente solo ves `dist/energy-bazaar`,
           # cámbialo a:
           # path: dist/energy-bazaar
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 👇 ajusta según lo que veas en tu dist
+          path: dist/energy-bazaar
 
   deploy:
     needs: build
