@@ -5,10 +5,10 @@
 		</div>
 		<div>
 			<h1 class="app-title">
-				Galactic Energy Bazaar
+				{{ 'header.title' | translate }}
 			</h1>
 			<p class="app-subtitle">
-				Interplanetary Trade Console · 3057
+				{{ 'header.subtitle' | translate }}
 			</p>
 		</div>
 	</div>
@@ -16,22 +16,22 @@
 	<nav class="main-header__nav">
 		<a class="nav-link" routerLink="/dashboard" routerLinkActive="is-active"
 			[routerLinkActiveOptions]="{ exact: true }">
-			<span>Dashboard</span>
+			<span>{{ 'header.dashboard' | translate }}</span>
 		</a>
 
 		<a *hasPermission="['planet:read']" class="nav-link nav-link--proposals" routerLink="/planets" routerLinkActive="is-active">
 			<span class="icon">🪐</span>
-			<span>Planets</span>
+			<span>{{ 'header.planets' | translate }}</span>
 		</a>
 
 		<a *hasPermission="['trade:propose', 'trade:approve']" class="nav-link nav-link--proposals" routerLink="/proposals" routerLinkActive="is-active">
 			<span class="icon">✨</span>
-			<span>Proposals</span>
+			<span>{{ 'header.proposals' | translate }}</span>
 		</a>
 
 		<a class="nav-link nav-link--admin" routerLink="/admin" routerLinkActive="is-active">
 			<span class="icon">🛡</span>
-			<span>Admin</span>
+			<span>{{ 'header.admin-page' | translate }}</span>
 		</a>
 	</nav>
 
@@ -39,7 +39,7 @@
 		<div class="user-pill" *ngIf="user() as u">
 			<span class="user-name">{{ u.name || u.id }}</span>
 		</div>
-
+		<app-lang></app-lang>
 		<app-logout-button></app-logout-button>
 	</div>
 </header>

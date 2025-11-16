@@ -1,0 +1,14 @@
+<div class="lang-switcher" [class.is-open]="isLangOpen" (click)="toggleLangDropdown()">
+	<button type="button" class="lang-switcher__button">
+		<span class="lang-switcher__flag">
+			{{ currentLang === 'es' ? '🇪🇸' : '🇬🇧' }}
+		</span>
+		<span class="lang-switcher__chevron">▾</span>
+	</button>
+
+	<ul class="lang-switcher__menu" *ngIf="isLangOpen">
+		<li class="lang-switcher__item" *ngFor="let lang of langs" (click)="changeLang(lang.code, $event)">
+			<span class="lang-switcher__flag">{{ lang.flag }}</span>
+		</li>
+	</ul>
+</div>

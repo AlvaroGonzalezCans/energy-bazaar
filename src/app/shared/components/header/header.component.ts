@@ -5,10 +5,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LogoutButtonComponent } from '../logout-button/logout-button.component';
 import { AuthService } from '../../../core/auth/auth.service';
 import { HasPermissionDirective } from '../../../core/auth/permissions.directive';
+import { LangComponent } from '../lang/lang.component';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, RouterModule, LogoutButtonComponent, TranslateModule, HasPermissionDirective],
+  imports: [CommonModule, RouterModule, LogoutButtonComponent, TranslateModule, HasPermissionDirective, LangComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true

@@ -5,6 +5,14 @@
 		"login": "Login",
     "logout": "Salir"
 	},
+  	"header": {
+      "title": "Galactic Energy Bazaar",
+      "subtitle": "Consola de Trading Intraplanetaria · 3057",
+      "dashboard": "Panel",
+      "planets": "Planetas",
+      "proposals": "Propuestas",
+      "admin-page": "Aministración"
+	},
 	"admin": {
 		"title": "Panel de control de administrador",
 		"description": "Solamente miembros autorizados de Galactic Council pueden acceder a este área.",

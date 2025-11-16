@@ -5,6 +5,14 @@
 		"login": "Login",
 		"logout": "Logout"
 	},
+	"header": {
+		"title": "Galactic Energy Bazaar",
+		"subtitle": "Interplanetary Trade Console · 3057",
+		"dashboard": "Dashboard",
+		"planets": "Planets",
+		"proposals": "Proposals",
+		"admin-page": "Admin"
+	},
 	"admin": {
 		"title": "Admin Control Panel",
 		"description": "Only authorized Galactic Council members can access this area.",
