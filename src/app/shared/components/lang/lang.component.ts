@@ -15,7 +15,7 @@ export class LangComponent {
   private translate = inject(TranslateService);
 
   isLangOpen = false;
-  currentLang = this.translate.currentLang || this.translate.getDefaultLang() || 'en';
+  currentLang = this.translate.getBrowserLang() || 'en';
 
   langs = [
     { code: 'es', label: 'Español', flag: '🇪🇸' },
