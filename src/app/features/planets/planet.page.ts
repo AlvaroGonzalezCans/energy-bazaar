@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PlanetsService } from './planets.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-planet-page',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: 'planet.page.html',
   styleUrls: ['planet.page.scss']
 })

@@ -4,12 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { HasPermissionDirective } from '../../../../core/auth/permissions.directive';
 import { PlanetsService } from '../../planets.service';
 import { Planet } from '../../../../shared/models/planet.model';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   standalone: true,
   selector: 'app-planet-detail',
-  imports: [CommonModule, HasPermissionDirective],
-  templateUrl: './planet-detail.component.html',
+  imports: [CommonModule, HasPermissionDirective, TranslateModule],
+  templateUrl: 'planet-detail.component.html',
+  styleUrls: ['planet-detail.component.scss']
 })
 export class PlanetDetailComponent {
   private route = inject(ActivatedRoute);

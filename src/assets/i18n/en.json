@@ -57,7 +57,8 @@
 		"list": {
 			"title": "Proposals Timeline",
 			"empty": "No proposals yet",
-			"loading": "Fetching proposals from the Galactic Core..."
+			"loading": "Fetching proposals from the Galactic Core...",
+			"count-label": "Proposal/s"
 		},
 		"card": {
 			"id": "Proposal ID",
@@ -87,5 +88,10 @@
 			"amount": "Amount",
 			"submit": "Submit proposal"
 		}
+	},
+	"planets": {
+		"title": "Planets",
+		"description": "Explore the key worlds of the Galactic Energy Bazaar and their risk & energy profiles.",
+		"back-to-planets": "Back to Planets"
 	}
 }

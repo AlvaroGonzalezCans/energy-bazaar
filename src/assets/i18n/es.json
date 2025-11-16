@@ -57,7 +57,8 @@
     "list": {
       "title": "Línea Temporal de Propuestas",
       "empty": "Aún no hay propuestas",
-      "loading": "Recuperando propuestas desde el Núcleo Galáctico..."
+      "loading": "Recuperando propuestas desde el Núcleo Galáctico...",
+      "count-label": "Propuesta/s"
     },
     "card": {
       "id": "ID de Propuesta",
@@ -87,5 +88,10 @@
 			"amount": "Cantidad",
 			"submit": "Enviar propuesta"
 		}
-  }
+  },
+  "planets": {
+		"title": "Planetas",
+		"description": "Explora los principales mundos del Comercio de Energía Galáctico y sus riesgos.",
+		"back-to-planets": "Volver a Planetas"
+	}
 }
