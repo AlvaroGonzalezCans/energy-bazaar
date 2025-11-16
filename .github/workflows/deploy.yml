@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # 👇 ajusta según lo que veas en tu dist
-          path: dist/energy-bazaar
+          path: dist/energy-bazaar/browser
 
   deploy:
     needs: build
