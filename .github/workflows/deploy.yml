@@ -36,7 +36,7 @@ jobs:
 
       - name: Build Angular app
         run: |
-          pnpm build -- --configuration production --base-href /energy-bazaar/
+          pnpm build
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
