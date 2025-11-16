@@ -41,7 +41,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/energy-bazaar/browser
+          path: dist/energy-bazaar
           # si al hacer `pnpm build` localmente solo ves `dist/energy-bazaar`,
           # cámbialo a:
           # path: dist/energy-bazaar
