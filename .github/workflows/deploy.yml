@@ -28,6 +28,9 @@ jobs:
           # si al hacer `pnpm build` localmente solo ves `dist/energy-bazaar`,
           # cámbialo a:
           # path: dist/energy-bazaar
+      - name: Build Angular app
+        run: |
+          pnpm build
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
