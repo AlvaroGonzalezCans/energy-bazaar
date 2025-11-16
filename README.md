@@ -188,7 +188,7 @@ Using mocks for:
 CI/CD pipeline:
 - Builds with pnpm
 - Deploys automatically to GitHub Pages
-- Resulting URL: https://alvarogonzalezcans.github.io/energy-bazaar/
+- Resulting URL: https://alvarogonzalezcans.github.io/energy-bazaar/dasboard
 
 ## 🌐 **6. Deployment With GitHub Actions**
 The project is deployed automatically through a GitHub Actions workflow:
@@ -202,4 +202,4 @@ Ensures continuous delivery with every push to master.
 pnpm install
 pnpm start
 
-App runs at: http://localhost:4200/
+App runs at: http://localhost:4200/dashboard
