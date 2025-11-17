@@ -27,7 +27,12 @@ export class AuthService {
   private _user = signal<User | null>(this.restoreUserFromStorage());
   readonly user = computed(() => this._user());
   readonly roles = computed(() => this._user()?.roles ?? []);
-  readonly isAuthenticated = computed(() => !!this.accessToken());
+  readonly isAuthenticated = computed(() => {
+    const user = this._user();
+    if (!user) return false;
+
+    return this.isTokenValid();
+  });
 
   accessToken(): string | null {
     return localStorage.getItem('access_token');
@@ -103,7 +108,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!this._user() && this.isTokenValid();
+    return this.isAuthenticated();
   }
 
 isTokenValid(): boolean {
