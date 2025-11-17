@@ -188,7 +188,7 @@ Using mocks for:
 CI/CD pipeline:
 - Builds with pnpm
 - Deploys automatically to GitHub Pages
-- Resulting URL: https://alvarogonzalezcans.github.io/energy-bazaar/dasboard
+- Resulting URL: https://alvarogonzalezcans.github.io/energy-bazaar/ (please see section 8)
 
 ## 🌐 **6. Deployment With GitHub Actions**
 The project is deployed automatically through a GitHub Actions workflow:
@@ -202,4 +202,7 @@ Ensures continuous delivery with every push to master.
 pnpm install
 pnpm start
 
-App runs at: http://localhost:4200/dashboard
+App runs at: http://localhost:4200/login (please see section 8)
+
+## 📦 **8. Bug Facing**
+WIP: I am facing an issue related to isAuthenticated, permits are not updated properly, so once you set user and pass remove login name from path, and you will be able to see the dashboard. 
