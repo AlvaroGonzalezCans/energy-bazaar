@@ -113,6 +113,11 @@ This allows the app to instantly reconstruct the user's authorization context on
 ## 🛡 **4. Security Layers: Auth, Roles, Permissions**
 Energy Bazaar uses a multi-layered security system.
 
+You can use these Users:
+ - User: admin, Password: admin
+ - Trader: trader, Password: 1234
+ - Viewer: viewer, Passwwrod: viewer
+
 ## **4.1 Authentication Guard (authGuard)**
 
 Protects all authenticated routes.
